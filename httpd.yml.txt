@@ -1,0 +1,14 @@
+- hosts: docker
+  tasks:
+  - name: "Installing HTTPD package"
+    package:
+      name: "httpd"
+      state: present
+
+  - name: "Copy web page"
+    copy:
+      content: "TASK 14.2 Successfully Completed...!"
+      dest: "/var/www/html/t14.html"
+
+  - name: "starting web server"
+    command: "/usr/sbin/httpd"
